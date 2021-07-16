@@ -51,6 +51,16 @@ module "publicip" {
   resource_group   = "${module.resource_group.resource_group_name}"
 }
 
+module "vm" {
+  source            = "./modules/vm"  
+  name              = var.deployment_vm_name
+  resource_group    = "${module.resource_group.resource_group_name}"
+  location          = var.location
+  subnet_id         = "${module.network.subnet_id_test}"
+  size              = var.vm_size
+  admin_username    = var.admin_username
+  public_ip_address = "${module.publicip.public_ip_address_id}"
 
+}
 
 # Reference the AppService Module here.
