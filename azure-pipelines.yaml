@@ -42,7 +42,7 @@ stages:
               appType: webApp
               package: $(Pipeline.Workspace)/drop-fakerestapi/$(Build.BuildId)-fakerestapi.zip
   - deployment: VMDeploy
-     displayName: 'Configure VM'
+     displayName: Configure_VM
      environment:
       name:  TEST
       resourceType: VirtualMachine
