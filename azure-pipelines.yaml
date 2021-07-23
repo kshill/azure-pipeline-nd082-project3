@@ -30,6 +30,7 @@ stages:
     pool:
       vmImage: 'Ubuntu-18.04'
     environment: 'TEST'
+      azuresubscriptionid:  $(azuresubscriptionid)
     strategy:
       runOnce:
         deploy:
@@ -37,8 +38,8 @@ stages:
           - task: AzureWebApp@1
             displayName: 'Deploy Azure Web App'
             inputs:
-              azureSubscription: ''
-              appName: ''
+              azureSubscription: '$(azuresubscriptionid)'
+              appName: 'webks-AppService'
               appType: webApp
               package: $(Pipeline.Workspace)/drop-fakerestapi/$(Build.BuildId)-fakerestapi.zip
   - deployment: VMDeploy
