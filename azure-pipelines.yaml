@@ -44,7 +44,7 @@ stages:
   - deployment: VMDeploy
     displayName: Configure_VM
     environment:
-      name:  'TEST'
+      name:  TEST
       resourceType: VirtualMachine
       tags: deployer
     strategy:
