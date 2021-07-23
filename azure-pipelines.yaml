@@ -1,6 +1,7 @@
 name: Azure Pipelines
 variables:
   python.version: '3.7.6'
+  azuresubscriptionid:  $(azuresubscriptionid)
 stages:
 - stage: Build
   jobs:
@@ -30,7 +31,6 @@ stages:
     pool:
       vmImage: 'Ubuntu-18.04'
     environment: 'TEST'
-      azuresubscriptionid:  $(azuresubscriptionid)
     strategy:
       runOnce:
         deploy:
