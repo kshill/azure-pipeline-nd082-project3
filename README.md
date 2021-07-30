@@ -34,3 +34,6 @@ echo "access_key: $ACCOUNT_KEY"
 export ARM_ACCESS_KEY = <ARM Access Key>
 
 ```
+
+Install Azure Pipelines Terraform Extension
+https://marketplace.visualstudio.com/items?itemName=charleszipp.azure-pipelines-tasks-terraform
