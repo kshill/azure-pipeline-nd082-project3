@@ -9,6 +9,7 @@ stages:
     pool:
       name: Hosted Ubuntu 1604
     steps:
+    
     # Needed for Terraform VM deployment
     # - task: InstallSSHKey@0
     #   inputs:
@@ -18,7 +19,7 @@ stages:
     - task: TerraformInstaller@0
       displayName: 'Install Terraform'
       inputs:
-        terraformVersion: '0.13.4'
+        terraformVersion: '1.0.3'
     - task: ArchiveFiles@2
       displayName: 'Archive FakeRestAPI'
       inputs:
