@@ -16,11 +16,11 @@ stages:
     #     knownHostsEntry: 'KNOWN_HOSTS_STRING'
     #     sshPublicKey: 'PUBLIC_KEY'
     #     sshKeySecureFile: 'id_rsa'
-    - task: TerraformInstaller@0
+    - task: terraformInstaller@0
       displayName: 'Install Terraform'
       inputs:
         terraformVersion: '1.0.3'
-    - task: terraform@0
+    - task: TerraformTaskV1@0
       displayName: 'Terraform Init'
       inputs:
         provider: 'azurerm'
