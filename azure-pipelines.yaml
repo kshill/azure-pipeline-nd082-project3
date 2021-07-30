@@ -1,7 +1,7 @@
 name: Azure Pipelines
 variables:
   python.version: '3.7.6'
-  azuresubscriptionid:  $(azuresubscriptionid)
+  #azuresubscriptionid:  $(azuresubscriptionid)
 stages:
 - stage: Build
   jobs:
@@ -15,6 +15,10 @@ stages:
     #     knownHostsEntry: 'KNOWN_HOSTS_STRING'
     #     sshPublicKey: 'PUBLIC_KEY'
     #     sshKeySecureFile: 'id_rsa'
+    - task: TerraformInstaller@0
+      displayName: 'Install Terraform'
+      inputs:
+        terraformVersion: '0.13.4'
     - task: ArchiveFiles@2
       displayName: 'Archive FakeRestAPI'
       inputs:
@@ -38,7 +42,7 @@ stages:
           - task: AzureWebApp@1
             displayName: 'Deploy Azure Web App'
             inputs:
-              azureSubscription: project3_sc
+              azureSubscription: 'project3_sc'
               appName: 'webks-AppService'
               appType: webApp
               package: $(Pipeline.Workspace)/drop-fakerestapi/$(Build.BuildId)-fakerestapi.zip
