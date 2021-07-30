@@ -20,7 +20,7 @@ stages:
       displayName: 'Install Terraform'
       inputs:
         terraformVersion: '1.0.3'
-    - task: TerraformTaskV1@0
+    - task: Terraform@0
       displayName: 'Terraform Init'
       inputs:
         provider: 'azurerm'
