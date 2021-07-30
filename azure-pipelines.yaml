@@ -20,6 +20,18 @@ stages:
       displayName: 'Install Terraform'
       inputs:
         terraformVersion: '1.0.3'
+    - task: TerraformTaskV1@0
+      displayName: 'Terraform Init'
+      inputs:
+        provider: 'azurerm'
+        command: 'init'
+        backendend: Azure
+        #backendServiceArm: 'tamopstf'
+        backendAzureRmResourceGroupName: 'tstate'
+        backendAzureRmStorageAccountName: 'tstate30595'
+        backendAzureRmContainerName: 'tstate'
+        backendAzureRmKey: 'terraform.tfstate'
+        providerAzureConnectedServiceName: project3_sc
     - task: ArchiveFiles@2
       displayName: 'Archive FakeRestAPI'
       inputs:
